@@ -93,12 +93,4 @@
 //     console.log("You're out of the game!")
 // }
 
-let age = 22
-
-if (age < 21){
-    console.log("you can not enter the club!")
-}
-else {
-    console.log("welcome")
-}
 
