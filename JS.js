@@ -419,6 +419,36 @@ console.log(arrays)//['Boys', 'Girls', 'Diva']
 var arrays = 'Boys|Girls|Diva'.split('|')
 arrays.forEach(element =>
    console.log(element)); //Boys\n Girls\n Diva\
+//若分割規則是空字符串'' 則將每個char分割
+'a|b|c'.split('')//['a','|','b','|','c']
+//若規則是空的（）則回傳原字符串
+'a|b|c'.split()//['a|b|c']
+//想獲得多少長度 可用.split('',數量)
+'a|b|c'.split('',2)//['a','|']
+'a|b|c'.split('',0)//[]
+
+陣列：
+//可先賦值
+var arr = ['a','b','c']
+//也可先宣告後賦值 
+//任何類型都可以出現在陣列中 無限制
+var arr = []
+arr[0] = 'a'
+arr[1] = 2
+arr[2] = false
+arr[3] = [1,2,'3']
+//直接印出全部包含［］跟''
+console.log(arr) //[ 'a', 2, false, [ 1, 2, '3']]
+//多維陣列：陣列裡面放陣列 兩層就是二維 以此類推
+var arr = [[1,2],[3,4]]//二維陣列
+//印出陣列呼叫時 值為位置
+console.log(arr[0][1])//2
+console.log(arr[1][1])//4
+//length讀取陣列長度
+//後有（）是方法 沒有是屬性
+console.log(arr.length)//2
+//陣列超印 超出陣列位置 輸出undefined
+console.log(arr[2])//undefined
 
 
 
@@ -428,3 +458,7 @@ arrays.forEach(element =>
 
 
 
+
+
+
+ 
