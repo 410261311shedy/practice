@@ -385,6 +385,45 @@ if(str.indexOf('喜歡') > -1)｛
 ｝else{
    console.log('他沒有說喜歡你')；
 }
+實際使用：//查找array中有沒有字串
+const beasts = ["ant", "bison", "camel", "duck", "bison"];
+
+console.log(beasts.indexOf("bison"));
+// Expected output: 1
+
+// Start from index 2
+console.log(beasts.indexOf("bison", 2));
+// Expected output: 4
+
+console.log(beasts.indexOf("giraffe"));
+// Expected output: -1
+
+字符串方法trim() 
+//去除前後空格 制表符\t,\v（tab鍵）,換行符\n,和回車符\r（將鼠標移動到當前行首）
+//返回一個新的字符串 不改變原字符串
+範例：
+' hello world '.trim();//hello world
+var name = ' hookers yeahhh\r\n ';
+var result = name.trim();
+console.log(result);//hookers yeahhh
+
+ES6擴張內容 trimEnd() trimStart()
+範例：
+' hello world '.trimStart();//"hello world "
+' hello world '.trimEnd();//" hello world"
+
+字符串方法split()
+//按照給定規則分割字符串儲存到陣列內
+var arrays = 'Boys|Girls|Diva'.split('|')
+console.log(arrays)//['Boys', 'Girls', 'Diva']
+var arrays = 'Boys|Girls|Diva'.split('|')
+arrays.forEach(element =>
+   console.log(element)); //Boys\n Girls\n Diva\
+
+
+
+
+
 
 
 
