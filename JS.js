@@ -7,6 +7,8 @@ var people_zhangsan = "張三"
     $zhangsan
     _zhangsan
     $_zhangsan
+let 
+const 
 
 打印
 console.log(name);
