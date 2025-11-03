@@ -1,4 +1,6 @@
 變數
+var可以是全域、也可以是以函式作為範圍
+var 可以重複宣告
 var name = 10;
 "name"字母,美元符號$,下畫線_,和數字組成
 其中數字不能開頭
@@ -7,6 +9,11 @@ var people_zhangsan = "張三"
     $zhangsan
     _zhangsan
     $_zhangsan
+    
+let 與 const 則是區塊作為範圍 
+每個let宣告的都是獨立的就算名稱一樣
+var則是會用同一個
+let 可以重新賦值 const 不行
 let 
 const 
 
