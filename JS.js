@@ -357,3 +357,35 @@ for(var i = 1;i <= 9;i++){
         document.write(i + "+" + o + "=" + sum + "  " ); //document.write可以寫在將輸出寫在頁面上 但不會自動換行
     } 
 }
+
+//這裡開始是軍營內的 回去整理
+字符串方法indexOf()
+//用於確認一個字符串是否存在在另一字符串內
+//若有 回傳該字符串第一個位置（從0開始算）
+//若無 回傳-1
+範例：
+用法一：.indexOf('')
+'hello world'.indexOf('o');//4
+'hello world'.indexOf('ela');//-1
+'hello world'.indexOf('h');//0
+用法二：.indexOf('',num)
+//從num位置開始向後的匹配(包含該位置）
+範例：
+var str = "wednesday";
+//有找到
+console.log(str.indexOf('e',1));//1
+console.log(str.indexOf('e',4));//4
+//未找到
+console.log(str.indexOf('e',5);//-1
+
+實例：//此方法通常用於判斷句子中有沒有符合字串
+var str = "我不喜歡你"；
+if(str.indexOf('喜歡') > -1)｛
+   console.log('他有說喜歡')；
+｝else{
+   console.log('他沒有說喜歡你')；
+}
+
+
+
+
