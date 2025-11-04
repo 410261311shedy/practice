@@ -450,6 +450,42 @@ console.log(arr.length)//2
 //陣列超印 超出陣列位置 輸出undefined
 console.log(arr[2])//undefined
 
+遍歷陣列
+範例：
+var arr = ["a","b","c"]
+
+for(var i=0;i<arr.length;i++){
+    console.log(arr[i])
+}
+
+var arr2 = [[1,2], [3,4]]
+for(var i=0;i<arr2;i++){
+    console.log(arr2[i])
+}//[1,2] \n[3,4]
+arr.forEach(element => console.log(element))
+//[1,2] \n[3,4]
+arr.forEach(element => console.log(element[0]))
+//1 \n 3
+arr.forEach(element => console.log(element[1]))
+//2 \n 4
+arr.forEach(element => console.log(element[0],elemnent[1]))
+//1 2\n 3 4
+//
+var i = 0
+while(i<arr.length){
+    console.log(arr[i])
+    i++
+}
+
+//特殊用法for...in
+for(var i in arr){
+    console.log(arr[i])
+}
+
+
+
+
+
 
 
 
