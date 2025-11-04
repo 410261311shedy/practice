@@ -482,6 +482,18 @@ for(var i in arr){
     console.log(arr[i])
 }
 
+陣列方法Array.isArray()
+//判斷一個內容是否為陣列
+//回傳true false 補足typeOf功能的不足
+//typeOf無法判斷是否為陣列 只會印出object
+
+範例：
+var arr2 = [[1,2], [3,4]]
+var num = 2
+console.log(Array.isArray(arr2))//true
+console.log(Arrau.isArray(num))//false
+
+
 
 
 
