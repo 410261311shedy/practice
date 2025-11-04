@@ -12,7 +12,7 @@ var people_zhangsan = "張三"
     
 let 與 const 則是區塊作為範圍 
 每個let宣告的都是獨立的就算名稱一樣
-var則是會用同一個
+var則是會共用同一個
 let 可以重新賦值 const 不行
 let 
 const 
