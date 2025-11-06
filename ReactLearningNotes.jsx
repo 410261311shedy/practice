@@ -1,6 +1,17 @@
 State Hooks
 //To remember” information like user input
 useState declares a state variable that you can update directly.
+// 數字類型的狀態
+const [count, setCount] = useState(0);           // ✅ 數字 0
+const [price, setPrice] = useState(99.9);        // ✅ 小數
+const [quantity, setQuantity] = useState(1);     // ✅ 整數
+
+// 其他類型的狀態
+const [name, setName] = useState('');            // ✅ 字串
+const [todos, setTodos] = useState([]);          // ✅ 陣列
+const [user, setUser] = useState(null);          // ✅ null
+const [isLoading, setIsLoading] = useState(false); // ✅ 布林值
+const [formData, setFormData] = useState({});    // ✅ 物件
 e.g.:
 function ImageGallery() {
    const[index, setIndex] = useState(0)
@@ -111,12 +122,11 @@ useEffect(() => {
   // 只在元件初次渲染後執行
 }, []);
 
-// 3. 依賴值變化時執行
+// 3.dependencies變化時執行
 useEffect(() => {
-  // 當 count 變化時執行
+  // 當 count 變化時執行 count 就是dependency
 }, [count]);
-useLayoutEffect
-useInsertionEffect
+
 常見使用範例：
 // 1. 資料獲取
 useEffect(() => {
@@ -141,3 +151,48 @@ useEffect(() => {
   
   return () => clearInterval(timer);
 }, []);
+useLayoutEffect
+與 useEffect 類似，但在瀏覽器繪製畫面前同步執行。
+useLayoutEffect(() => {
+  // 在這裡的操作會阻塞瀏覽器繪製
+  // 適合需要同步測量 DOM 的場景
+}, []);
+useInsertionEffect
+
+Arrow Function =>
+範例：
+// 傳統函數寫法
+function(a) { return a + 1; }
+
+// 箭頭函數寫法
+(a) => a + 1
+
+// 在 React 中的應用
+const handleClick = () => {
+  console.log('按鈕被點擊');
+};
+
+// 事件處理函數
+onClick={(e) => handleClick(e)}
+原句：
+onClick={function(e)｛return handleClick(e);}}
+更簡潔
+onClick={function(e)｛handleClick(e);}}
+範例：
+onClick={handleClick}                    // 最推薦
+// 或者
+onClick={(e) => handleClick(e)}         // 次推薦
+// 或者  
+onClick={function(e) { handleClick(e); }} // 可接受
+
+.current(useRef屬性）
+範例:
+const inputRef = useRef(null);
+
+// 使用 .current 來訪問 ref 的當前值
+console.log(inputRef.current); // 獲取當前值
+inputRef.current = newValue;   // 設置新值
+
+// 實際應用 - 操作 DOM 元素
+inputRef.current.focus();      // 讓輸入框獲得焦點
+inputRef.current.value = 'hello'; // 設置輸入框的值
