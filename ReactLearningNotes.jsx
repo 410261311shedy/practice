@@ -35,7 +35,7 @@ e.g:
 //to all components below, no matter how deep.
 useContext
 e.g:
-frunction Button() {
+function Button() {
     const theme = useContext(ThemeContext);
 }
 
