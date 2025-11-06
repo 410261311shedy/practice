@@ -510,9 +510,51 @@ pop()方法
 //刪除陣列的最後一個元素，並返回該元素
 //會改變陣列！
 var arr1 = [100,200,300,400];
-arr1.pop();//'400'
-console.log(arr1)//[100,200,300]
+var a = arr1.pop();//400
+arr1.pop();//300
+console.log(a);//400
+console.log(arr1)//[100,200]
 
+陣列方法 shift()/unshift()
+shift()
+//用於刪除陣列的第一個元素並返回該元素
+//會改變陣列
+arr = ["a","b","c"];
+arr.shift();//'a'
+var a = arr.shift();//'b'
+console.log(a);//'b'
+console.log(arr)//['c']
+常用用法：清空陣列
+範例：
+對空陣列shift()會回傳undefined
+var arr = [100,200,300,400]
+//當陣列被shift完後會變成undefined
+//對undefined取bool會得false所以跳出陣列
+while(var item = arr.shift()){
+         console.log(item)
+    }//100,200,300,400
+console.log(arr);//[]
+
+unshift()
+//在陣列開頭第一個位置加入新元素
+//並返回新陣列長度
+//可接受一至多個元素
+var arr = [100,200,300,400];
+var a = arr.unshift("你好","我是")；
+console.log(a);//6
+console.log(arr);//［"你好","我是",100,200,300,400]
+
+陣列方法join()
+//以指定參數作為分隔符號
+//將所有陣列成員連接成一個字符串返回
+範例：
+var arr = [1,2,3,4,5];
+//若不輸入參數則已「,」默認分割
+arr.join();//1,2,3,4,5
+arr.join("");//12345
+arr.join(" ");//1 2 3 4 5
+arr.join("|");//1|2|3|4|5
+arr.join(" | ");//1 | 2 | 3| 4 | 5
 
 陣列方法arr.map()
 
