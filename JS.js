@@ -555,6 +555,14 @@ arr.join("");//12345
 arr.join(" ");//1 2 3 4 5
 arr.join("|");//1|2|3|4|5
 arr.join(" | ");//1 | 2 | 3| 4 | 5
+//若陣列內為null,undefined或空位 會被轉成空字符串
+[undefined,null].join('#');//'#'
+['a',,'b'].join('-');//'a--b'
+
+var arr1 = ["hello","world"];
+var result = arr1.join(" ");
+console.log(result);//hello world
+console.log(result.split(" ");//['hello','world']
 
 陣列方法arr.map()
 
