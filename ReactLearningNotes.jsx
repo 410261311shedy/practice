@@ -196,3 +196,10 @@ inputRef.current = newValue;   // 設置新值
 // 實際應用 - 操作 DOM 元素
 inputRef.current.focus();      // 讓輸入框獲得焦點
 inputRef.current.value = 'hello'; // 設置輸入框的值
+
+.focus()(DOM方法）
+// 讓指定的輸入框獲得焦點（游標閃爍在輸入框內）
+inputRef.current.focus();
+
+// 這是一個瀏覽器內建的 DOM 方法，不是 React 特有的
+
