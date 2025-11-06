@@ -493,6 +493,26 @@ var num = 2
 console.log(Array.isArray(arr2))//true
 console.log(Arrau.isArray(num))//false
 
+陣列方法.push()/.pop()
+push()方法
+//在陣列的末端添加一個或著多個元素
+//並return新返回陣列的長度
+//會改變原陣列
+範例：
+var arr = []
+arr.push("上學堂");
+//arr[0] = '上學堂'
+var myLength = arr.push("大家好","world",100,true);
+console.log(arr);//['上學堂','大家好','world',100,true]
+console.log(myLength);//5
+
+pop()方法
+//刪除陣列的最後一個元素，並返回該元素
+//會改變陣列！
+var arr1 = [100,200,300,400];
+arr1.pop();//'400'
+console.log(arr1)//[100,200,300]
+
 
 陣列方法arr.map()
 
@@ -501,6 +521,7 @@ const numbers = [1,2,3] ;
 const double = number.map(num => num*2);
 //[2,4,6]
 console.log(double);//[2,4,6]
+
 
 
 
