@@ -494,7 +494,13 @@ console.log(Array.isArray(arr2))//true
 console.log(Arrau.isArray(num))//false
 
 
+陣列方法arr.map()
 
+const numbers = [1,2,3] ;
+//講陣列內的每個元素換成新的形式
+const double = number.map(num => num*2);
+//[2,4,6]
+console.log(double);//[2,4,6]
 
 
 
