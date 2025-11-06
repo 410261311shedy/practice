@@ -203,3 +203,8 @@ inputRef.current.focus();
 
 // 這是一個瀏覽器內建的 DOM 方法，不是 React 特有的
 
+.map()在react中的應用
+//在react中渲染列表
+{todos.map(todo => (
+   <div key={todo.id}>{todo.text}</div>
+   ))}
