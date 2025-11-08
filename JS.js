@@ -357,6 +357,149 @@ for(var i = 1;i <= 9;i++){
         document.write(i + "+" + o + "=" + sum + "  " ); //document.write可以寫在將輸出寫在頁面上 但不會自動換行
     } 
 }
+循環語句while
+    while(條件){
+        語句;
+    }
+舉例:
+    var i = 1;
+    while(i<=100){
+        console.log(i);
+        i++;
+    }
+    while(true){ //無限循環
+        語句;
+    }
+
+跳出語句
+break語句和continue語句  
+舉例:
+break範例
+//輸出i到5就結束 就跳出循環
+    for(var i = 1;i<100;i++){
+        if(i == 5){
+            break;//跳出循環
+        }
+        console.log(i);
+    }
+continue範例
+//不輸出5 直接進行下一個動作
+    for(var i = 1;i<100;i++){
+        if(i == 5){
+            continue;//編譯到這就跑回去while
+        }
+        console.log(i);
+    }
+
+字符串 //字符串事由0個或多個排在一起字符 放在單引號或雙引號中
+
+範例:
+    var str1 = "itbaizhan,'百戰程序原'";
+    var str2 = '上學堂,"sxt"';
+    //字符串嵌套單雙引號不可用一樣的
+    //e.g.: var str3 = "itbaizhan"程序原""
+    
+//要在單引號字符串的內部,使用單引號,
+//就必須在內部的單引號錢加上反斜槓 
+//舉例:\'
+'Did she say \'Hello\'?'
+//Did she say Hello?
+"Did she say \"Hello\"?"
+//Did she say Hello?
+
+//!字符串默認時只能一行 若要換行 需要在換行時加上 \
+舉例:
+    錯:
+        var str6 = "不能雙引號中嵌套雙引號,
+        或著單引號中嵌套單引號";
+    對:
+       var str6 = "不能雙引號中嵌套雙引號,\
+        或著單引號 \
+        中嵌套單引號";
+1.//.length屬性 .length
+    length屬性返回字符串的長度，該屬性也是無法改變的
+    var str7 = "1234567";
+    console.log("str7.length");
+
+字符串的功能charAt()  
+2.//.charAt返回指定位置的字符 參數是從"0"開始編號的 
+
+舉例:
+    var s = new String('fuck');
+
+    s.charAt(1);//"u"
+    s.charAt(s.length - 1)//""
+    
+    //印出最後一個字符
+    var str = "abcd"
+    console.log(str.charAt(3));//位置有關都是從0開始
+
+    // ""空字符 該位置沒有東西
+    console.log(str.charAt(-2));
+    console.log(str.charAt(12));
+
+3.//結合字符串 .concat()
+  //用於連接兩個字符串,返回一個新的字符串，不改變原字串
+
+  舉例:
+    var s1 = '1234';
+    var s2 = '5678';
+    
+    var s3 = s1.concat(s2);
+    console.log(s1.concat(s2)); //12345678
+    console.log(s3); //12345678
+    console.log(s1); //1234
+
+    //結合多個字符串
+    var result1 = s1.concat(s2,s3);
+    console.log(result);//1234567812345678
+
+    //若參數不是字符串 會先將其轉為字符串再連接
+    var num = 1;
+    var result2 = s1.concat(s1,s2,num);//123456781
+    
+    //簡易方法 做字符串相加還可以用 +
+    console.log(s1 + s2 + num);//123456781
+
+    例外: 
+        var one = 1;
+        var two = 2;
+        var three = '3';
+
+        console.log(''.concat(one,two,three));//123
+        console.log(one + two + three);//33
+        //+號遇到字符串才會轉成字串 前兩項若是num會相加
+    //concat() vs + :concat遇到所有類型直接合併成字符串
+    // + 遇到數字類型直接做運算，遇到字符串相連結
+
+取出子字符串並取回substring
+//從原字符串取出子字符串並return不改變原字符串。
+//第一個參數表示子字符串的開始位置 第二個表示結束位置(返回結果不報含該位置)
+舉例:
+    var name = "abcdefg";
+    console.log(name.substring(2,4));//cd
+//若省略第二個參數 輸出值到原字符串結束
+    console.log(name.substring(2));//cdefg
+//若第一個參數大於第二個參數 會自動調換位置
+    console.log(name.substring(4,2));
+   ==> console.log(name.substring(2,4));
+//若參數是負數 會自動轉換成0
+    console.log(name.substring(-2));
+   ==> console.log(name.substring(0));
+
+    console.log(name.substring(-2,3));
+   ==> console.log(name.substring(0,3));
+//.substr
+    //從原字符串取出子字符串並return不改變原字符串。
+    //第一個參數是子字符串的開始位置(從0計算)
+    //第二個參數是子字符串的長度
+    //若跳過第二
+    舉例:
+
+        var name = "itbaizhan";
+        var result = name.substr(2,5);//baizh
+    //若第一個參數是負數，表示"倒數計算的字符位置"
+    //第二個參數是負數會轉換成0
 
 //這裡開始是軍營內的 回去整理
 字符串方法indexOf()
