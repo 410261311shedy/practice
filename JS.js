@@ -702,10 +702,65 @@ arr.join(" | ");//1 | 2 | 3| 4 | 5
 [undefined,null].join('#');//'#'
 ['a',,'b'].join('-');//'a--b'
 
+//陣列的join配合字串的split可以實現陣列和字串的互換
 var arr1 = ["hello","world"];
 var result = arr1.join(" ");
 console.log(result);//hello world
 console.log(result.split(" ");//['hello','world']
+
+陣列方法concat()
+//用於多個陣列的合併，將新陣列的成員添加到原陣列的後面
+//返回"一個""新陣列"，原陣列不變
+範例:
+var arr1 = ["你好","你好2"];
+var arr2 = ["不好","不好2"];
+var arr3 = ["嘿嘿","嘿嘿2"];
+
+console.log(arr1.concat(arr2,arr3));//["你好","你好2","不好","不好2","嘿嘿","嘿嘿2"]
+console.log(arr1);//["你好","你好2"]//不改變原陣列
+//除了用陣列作為參數，也能用其他型別的值作為參數，添加到目標陣列尾部
+var arr4= ["10"];
+console.log(arr4.concat(20,30,40));//['10',20,30,40]
+//最常應用(上滑加載,合併數據)ig fb等等程式滑動
+範例:
+[1,2,3].concat(4,5,6,[7,8,9]);
+//返回[1,2,3,4,5,6,7,8,9]//因只能返回一個一維陣列
+
+陣列方法reverse()
+//顛倒陣列排序原素，返回改變後的陣列
+//會改變原陣列
+var a = ["a","b","c"];
+a.reverse();
+console.log(a);//['c','b','a']
+範例:
+//helloworld字串:反轉顯示dlrowolleh
+//字串轉陣列split 陣列翻轉 陣列轉字串join
+var str = "helloworld";
+var myArr = str.split("");//["h","e","l","l","o","w","o","r","l","d"]
+myArr.reverse();//['d', 'l', 'r', 'o','w', 'o', 'l', 'l','e', 'h']
+console.log(myArr.join(""));//dlrowolleh
+簡化:
+var str = "hello";
+str.split("").reverse().join("");//olleh
+
+陣列方法 indexOf()
+//查找該元素在陣列中"第一次"出現的位置
+//若無返回-1
+範例:
+var arr =[10,20,30,10];
+arr.indexOf(10);//0
+arr.indexOf(60);//-1
+
+用法判斷存在與否
+//不存在才會是-1
+if(arr.indexOf(30) > -1){
+    console.log("存在");
+}else {
+    console.log("不存在");
+}
+//第二種方式:放入第二個參數，表示開始搜索的位置
+arr.indexOf(10);//0
+arr.indexOf(10,1);//3
 
 陣列方法arr.map()
 
@@ -715,13 +770,98 @@ const double = number.map(num => num*2);
 //[2,4,6]
 console.log(double);//[2,4,6]
 
+!!!!函式 function!!!!
+//可反覆調用的//當被呼叫時才執行//可先被呼叫再創建該函式(不常用)
+//使用時機當，當code內有重複被使用的一段code時
+//將它寫成函式
+範例:
+function 名稱(參數){
+    執行code
+} 
+
+function add(x,y){
+    console.log(x+y);
+}
+add(1,2);//3
+//可設定返回值
+function add(x,y){
+    return x+y;
+    //return後不可coding//return後的東西不會執行
+}
+var result = add(10,20);
+console.log(result);//30
+
+!!!Object!!!!!!
+//object 是鍵值對(key-value)一種無序的複合數據集合
+範例:
+var user = {
+    name: 'Shedy',
+    age: '13',
+    jobs: ["a","b"],
+    flag: true
+};
+//object屬性讀取方式
+user.name;//Shedy
+user.jobs[0];//a
+
+遍歷jobs
+for(var i in user.jobs){
+    console.log(user.jobs[i]);
+}
 
 
+//object的每一個鍵名又稱屬性"(property)"
+//可以是任何數據類型，若一個屬性的值為函式，該屬性稱方法
+//可像函數依樣調用
+var user = {
+    getName: function(){
+        console.log("Shedy");
+    }
+};
+user.getName();//Shedy
+//若屬性還是一個對象
+//稱為鏈式引用
+var user = {
+    name: 'Shedy',
+    age: '13',
+    jobs: ["a","b"],
+    flag: true,
+    container:{
+        texture:"smooth",
+        component:"flesh"
+    }
+};
+//鏈式引用
+console.log(user.container.texture);//smooth
 
+Math功能
+//Math.abs()取參數絕對值
+Math.abs(-1)//1;
 
+//Math.max返回參數中最大的值 若參數為空返回-infinity
+//Math.min返回最小的值 若參數為空返回infinity
+Math.max(2,1,-5)//2
+Math.min(2,1,-5)//-5
 
+//Math.floor(),Math.ceil()
+//math.floor方法返回小於參數值的最大整數
+Math.floor(3.2)//3
+Math.floor(-3.2)//4
 
+//Math.ceil方法返回大於參數值的最小整數
+Math.floor(3.2)//4
+Math.floor(-3.2)//-3
 
+//Math.random返回0-1之間的一個假隨機數
+Math.random()//0.23123141231
+
+取範圍間的隨機數
+假設10-20之間的
+function getRandomarbitary(min,max){
+    return Math.random()*(max-min)+min;
+}
+若要之中的整數 向下取整或是向上取整都行
+console.log(Math.floor(getRandomarbitary(10,20)));
 
 
 
