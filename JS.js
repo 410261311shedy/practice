@@ -67,7 +67,7 @@ js引入到文件中
 
 數據類型type 6個 es6 8個 //!常見面試題
     數值
-    字符串
+    字串
     布林值
     null
     對象（object)
@@ -75,7 +75,7 @@ js引入到文件中
 原始類型(基礎類型)
     數值 //數值/數字類型
         var age = 20;
-    字符串 //被雙引號或單引號包住的值
+    字串 //被雙引號或單引號包住的值
         var name1 = "iwen";
         var name2 = "上學堂";
     布林值 //0 和 1 false 0 true 1
@@ -111,7 +111,7 @@ typeof運算符
     console.log(typeof null ); //object
     console.log(typeof undefined); //undefined
 
-    //null一班代表object "沒有"
+    //null一般代表object "沒有"
     //undefined代表數值 "沒有"
     //基本上不會用 typeof 來判斷null和undefined
 
@@ -196,7 +196,7 @@ typeof運算符
 
 布林運算符
 //對於非布林值 取反運算符會將其轉為布林值 
-// 以下6個值取返後為true 其他皆false : undefined ,null ,false ,0 ,NaN ,空字符串("")
+// 以下6個值取返後為true 其他皆false : undefined ,null ,false ,0 ,NaN ,空字串("")
 // 取反 !
     !true  //false
     !false // true
@@ -391,15 +391,15 @@ continue範例
         console.log(i);
     }
 
-字符串 //字符串事由0個或多個排在一起字符 放在單引號或雙引號中
+字串 //字串事由0個或多個排在一起字符 放在單引號或雙引號中
 
 範例:
     var str1 = "itbaizhan,'百戰程序原'";
     var str2 = '上學堂,"sxt"';
-    //字符串嵌套單雙引號不可用一樣的
+    //字串嵌套單雙引號不可用一樣的
     //e.g.: var str3 = "itbaizhan"程序原""
     
-//要在單引號字符串的內部,使用單引號,
+//要在單引號字串的內部,使用單引號,
 //就必須在內部的單引號錢加上反斜槓 
 //舉例:\'
 'Did she say \'Hello\'?'
@@ -407,7 +407,7 @@ continue範例
 "Did she say \"Hello\"?"
 //Did she say Hello?
 
-//!字符串默認時只能一行 若要換行 需要在換行時加上 \
+//!字串默認時只能一行 若要換行 需要在換行時加上 \
 舉例:
     錯:
         var str6 = "不能雙引號中嵌套雙引號,
@@ -417,11 +417,11 @@ continue範例
         或著單引號 \
         中嵌套單引號";
 1.//.length屬性 .length
-    length屬性返回字符串的長度，該屬性也是無法改變的
+    length屬性返回字串的長度，該屬性也是無法改變的
     var str7 = "1234567";
     console.log("str7.length");
 
-字符串的功能charAt()  
+字串的功能charAt()  
 2.//.charAt返回指定位置的字符 參數是從"0"開始編號的 
 
 舉例:
@@ -438,8 +438,8 @@ continue範例
     console.log(str.charAt(-2));
     console.log(str.charAt(12));
 
-3.//結合字符串 .concat()
-  //用於連接兩個字符串,返回一個新的字符串，不改變原字串
+3.//結合字串 .concat()
+  //用於連接兩個字串,返回一個新的字串，不改變原字串
 
   舉例:
     var s1 = '1234';
@@ -450,15 +450,15 @@ continue範例
     console.log(s3); //12345678
     console.log(s1); //1234
 
-    //結合多個字符串
+    //結合多個字串
     var result1 = s1.concat(s2,s3);
     console.log(result);//1234567812345678
 
-    //若參數不是字符串 會先將其轉為字符串再連接
+    //若參數不是字串 會先將其轉為字串再連接
     var num = 1;
     var result2 = s1.concat(s1,s2,num);//123456781
     
-    //簡易方法 做字符串相加還可以用 +
+    //簡易方法 做字串相加還可以用 +
     console.log(s1 + s2 + num);//123456781
 
     例外: 
@@ -468,17 +468,17 @@ continue範例
 
         console.log(''.concat(one,two,three));//123
         console.log(one + two + three);//33
-        //+號遇到字符串才會轉成字串 前兩項若是num會相加
-    //concat() vs + :concat遇到所有類型直接合併成字符串
-    // + 遇到數字類型直接做運算，遇到字符串相連結
+        //+號遇到字串才會轉成字串 前兩項若是num會相加
+    //concat() vs + :concat遇到所有類型直接合併成字串
+    // + 遇到數字類型直接做運算，遇到字串相連結
 
-取出子字符串並取回substring
-//從原字符串取出子字符串並return不改變原字符串。
-//第一個參數表示子字符串的開始位置 第二個表示結束位置(返回結果不報含該位置)
+取出子字串並取回substring
+//從原字串取出子字串並return不改變原字串。
+//第一個參數表示子字串的開始位置 第二個表示結束位置(返回結果不報含該位置)
 舉例:
     var name = "abcdefg";
     console.log(name.substring(2,4));//cd
-//若省略第二個參數 輸出值到原字符串結束
+//若省略第二個參數 輸出值到原字串結束
     console.log(name.substring(2));//cdefg
 //若第一個參數大於第二個參數 會自動調換位置
     console.log(name.substring(4,2));
@@ -490,9 +490,9 @@ continue範例
     console.log(name.substring(-2,3));
    ==> console.log(name.substring(0,3));
 //.substr
-    //從原字符串取出子字符串並return不改變原字符串。
-    //第一個參數是子字符串的開始位置(從0計算)
-    //第二個參數是子字符串的長度
+    //從原字串取出子字串並return不改變原字串。
+    //第一個參數是子字串的開始位置(從0計算)
+    //第二個參數是子字串的長度
     //若跳過第二
     舉例:
 
@@ -502,9 +502,9 @@ continue範例
     //第二個參數是負數會轉換成0
 
 //這裡開始是軍營內的 回去整理
-字符串方法indexOf()
-//用於確認一個字符串是否存在在另一字符串內
-//若有 回傳該字符串第一個位置（從0開始算）
+字串方法indexOf()
+//用於確認一個字串是否存在在另一字串內
+//若有 回傳該字串第一個位置（從0開始算）
 //若無 回傳-1
 範例：
 用法一：.indexOf('')
@@ -541,9 +541,9 @@ console.log(beasts.indexOf("bison", 2));
 console.log(beasts.indexOf("giraffe"));
 // Expected output: -1
 
-字符串方法trim() 
+字串方法trim() 
 //去除前後空格 制表符\t,\v（tab鍵）,換行符\n,和回車符\r（將鼠標移動到當前行首）
-//返回一個新的字符串 不改變原字符串
+//返回一個新的字串 不改變原字串
 範例：
 ' hello world '.trim();//hello world
 var name = ' hookers yeahhh\r\n ';
@@ -555,16 +555,16 @@ ES6擴張內容 trimEnd() trimStart()
 ' hello world '.trimStart();//"hello world "
 ' hello world '.trimEnd();//" hello world"
 
-字符串方法split()
-//按照給定規則分割字符串儲存到陣列內
+字串方法split()
+//按照給定規則分割字串儲存到陣列內
 var arrays = 'Boys|Girls|Diva'.split('|')
 console.log(arrays)//['Boys', 'Girls', 'Diva']
 var arrays = 'Boys|Girls|Diva'.split('|')
 arrays.forEach(element =>
    console.log(element)); //Boys\n Girls\n Diva\
-//若分割規則是空字符串'' 則將每個char分割
+//若分割規則是空字串'' 則將每個char分割
 'a|b|c'.split('')//['a','|','b','|','c']
-//若規則是空的（）則回傳原字符串
+//若規則是空的（）則回傳原字串
 'a|b|c'.split()//['a|b|c']
 //想獲得多少長度 可用.split('',數量)
 'a|b|c'.split('',2)//['a','|']
@@ -689,7 +689,7 @@ console.log(arr);//［"你好","我是",100,200,300,400]
 
 陣列方法join()
 //以指定參數作為分隔符號
-//將所有陣列成員連接成一個字符串返回
+//將所有陣列成員連接成一個字串返回
 範例：
 var arr = [1,2,3,4,5];
 //若不輸入參數則已「,」默認分割
@@ -698,7 +698,7 @@ arr.join("");//12345
 arr.join(" ");//1 2 3 4 5
 arr.join("|");//1|2|3|4|5
 arr.join(" | ");//1 | 2 | 3| 4 | 5
-//若陣列內為null,undefined或空位 會被轉成空字符串
+//若陣列內為null,undefined或空位 會被轉成空字串
 [undefined,null].join('#');//'#'
 ['a',,'b'].join('-');//'a--b'
 
