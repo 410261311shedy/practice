@@ -843,6 +843,12 @@ Math.abs(-1)//1;
 Math.max(2,1,-5)//2
 Math.min(2,1,-5)//-5
 
+//Math.round()
+//小數點四捨五入直接取整
+Math.round(20.49)//20
+Math.round(-20.5)//-20
+Math.round(-20.51)//-21
+
 //Math.floor(),Math.ceil()
 //math.floor方法返回小於參數值的最大整數
 Math.floor(3.2)//3
@@ -864,9 +870,92 @@ function getRandomarbitary(min,max){
 console.log(Math.floor(getRandomarbitary(10,20)));
 
 
+Date object
+//js原生時間庫 時間零點1970/1/1 00:00:00 時間範圍前後各一億天(毫秒)
+//時出
+Date.now()
+//輸出時間戳
+範例:
+console.log(new Date());//
+實例方法get類
+.getTime()//返回實例距離1970/1/1 00:00:00的毫秒數
+.getDate()//返回實例對象對應每個月的幾號(從1開始)
+.getDay()//返回星期幾，星期日為0，星期一為1，以此類推
+.getYear()//返回現在年份扣除1900
+.getFullYear()//返回現在西元年分
+.getMonth()//0-11要再輸出前加1
+.getHours()//0-23
+.getMilliseconds()//返回毫秒0-999
+.getMinutes()//返回分鐘0-59
+.getSeconds()//返回秒0-59
 
+console.log(new Date().getDate());
+// 西元年-月-號 
+var year = new Date().getFullYear();
+var month = new Date().getMonth();
+var date = new Date().getDate();
 
+console.log(year+"-"+month+"-"+date);
+範例:
+var d = new Date('January 6 ,2022');
+d.getDate();//6
+d.getMonth();//0
+d.getYear();//2022-1900 = 122
+d.getFullYear();//2022
 
+使用函式獲取本年度剩餘天數
+function leftDays(){
+    var today = new Date();
+    var endYear = new Date(today.getFullYear(),11,31,23,59,59,999);
+    var msPerDay = 24*60*60*1000;
+    var result = (endYear.getTime()-today.getTime())/msPerDay;
+    console.log(Math.round(result));
+}
+leftDays();
 
+DOM概述//(Documentment Object Model)
+//通過DOM我們可以用js來操作網頁上的一些變化
+//將網頁轉回一個js對象 讓使用者透過js可以操作網頁
+//DOM把網頁上的元素變成節點供js操作
+//若無DOM js就無法控制網頁
+節點
+//DOM最小組成單位叫做節點(node)
+//Document的樹狀結構DOM樹 由不同類型的節點組成
+節點類型有七種
+!!Document:document樹的頂層節點
+DocumentType:doctype標籤
+!!Element:網頁的各種HTML標籤(e.g.:<div></div>等等)
+Attribute:網頁元素的屬性(e.g.:class="right")
+Text:標籤之間或標籤包含的文本
+Comment:註釋
+DocumentFragment:文檔的片段
 
- 
+HTML -> body ->p a div
+
+範例:
+console.log(document);
+//#document 展開式整個頁面的文檔
+
+節點之間的關係
+父節點關係(parentNode):直接的那個上級節點
+子節點關係(childNodes):直接的下級結點
+同級節點關係(sibling):擁有同一個父節點的節點
+
+Node.nodeType屬性
+節點的nodeType屬性值和對應的常量如下
+
+文檔節點(document): 9,對應常數 Node.DOCUMENT_NODE
+元素節點(element): 1,對應常數 Node.ELEMENT_NODE
+屬性節點(attr): 2,對應常數 Node.ATTRIBUTE_NODE
+文本節點(text): 3,對應常數 Node.TEXT_NODE
+文檔片段節點(DocumentFragment): 11,對應常數 Node.DOCUMENT_FRAGMENT_NODE
+
+範例:
+document.nodeType //9
+document.nodeType === Node.DOCUMENT_NODE //True
+
+if(document.nodeType === 9){
+    console.log("頂層節點");
+}else{
+    console.log("非頂層節點");
+}
