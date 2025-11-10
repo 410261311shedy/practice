@@ -959,3 +959,73 @@ if(document.nodeType === 9){
 }else{
     console.log("非頂層節點");
 }
+
+document 物件 方法/獲取元素
+
+document.getElementsByTagName()
+//搜索HTML標籤名 返回符合條件的元素 實時反應HTML變化
+//返回值是陣列(HTMLCollection實例)
+//若無搜尋到 返回空集合
+document.getElementsByClassName()
+//同上 不同點為透過class名稱來返回搜索到的元素
+//並返回陣列
+document.getElementsByName()
+//name常用於form(表單）
+//使用率極低
+document.getElementById()
+//同上 若無搜索到返回null
+HTML5之後的新增功能
+document.querySelector()
+//接收一個css選擇器作為參數 返回匹配該選擇器的元素節點
+//若有多個則返回第一個 若無返回null
+範例：
+<body>
+   <div>hello1</div>
+   <p class="text">a</p>
+   <div>hello2</div>
+   <form name="login"></form>
+   <div id="root">哈哈哈</div>
+   <div class="nav">nav1</div>
+   <div class="nav">nav2</div>
+   <script>
+      var divs = document.getElementsByTagName("div");
+      console.log(divs);
+      //HTMLCollection(2) [div,div] 
+      //讀取其中一個
+      var divs1 = document.getElementsByTagName('div')[0]
+      console.log(divs1);
+      //<div>hello1</div> 輸出這個代表讀取到內容了
+      //可修改內部內容 .innerHTML()
+      divs1.innerHTML("hell no")
+      console.log(divs1);//<div>hell no</div>
+      //內部放入星號 可讀取所有HTML元素
+      var divsAll = document.getElementsByTagName('*')
+      //HTMLCollection(3) [div,p,div]
+    
+      var divsClass= document.getElementsByClassName("text")
+      console.log(divClass)//HTMLCollection[p.text]
+      var divsClass1= document.getElementsByClassName("text")[0]
+      console.log(divClass1)//<p class="text">a</p>
+      //修改 innerHTML()
+      divsClass1.innerHTML("hello3")
+      //p中內容從a改為hello3
+      
+      //使用率極低
+      var name = document.getElementsByName("login")
+      console.log(name)//[object Nodelist]
+      
+      //最常用Element沒有加s 有s代表返回集合 無則是返回當前元素
+      //！！因id名是不可重複的！！
+      var id1 = document.getElementById("root")
+      console.log(id1)//<div id="root">哈哈哈</div>
+      //內容修改
+      id1.innerHTML("呵呵呵")//<div id="root">呵呵呵</div>
+      
+      //因選擇的是css選擇器 所以前面要加「.」 
+      //若是id 前加「#」
+      var navs = document.querySelector(".nav")
+   </script>
+</body>
+
+
+
