@@ -1083,3 +1083,72 @@ document.createAttribute()
   </script>
 </body>
 
+Element 屬性
+//Element對象對應網頁的HTML元素
+//每一個HTML元素 在DOM tree上都會轉換成Element 節點object
+
+Element.id
+//返回指定元素的id屬性
+//該屬性可讀可寫
+Element.className
+//用來讀取現在節點的class屬性 
+//返回值是字串 每個值之間用空格分割
+Element.classList
+add()//增加一個class
+remove()//移除一個class
+contains()//檢查當前元素是否包含某個class
+toggle() //將某個class移入或移除當前元素 若存在則移除 若不存在則添加
+
+元素.innerHTML 若無賦值符在後 則是取值
+   .innerText 同上
+   兩者差別在於HTML可以識別標籤 Text會把標籤識別成字串
+   
+<head> 
+   <style>
+      .box{
+          width:200px;
+          height:200px;
+       }
+      .box1{
+          background-color: red;
+       }
+    </style>
+</head>
+<body>
+   <div class="box" id="root">hello</div>
+   <script>
+      var root = document.getElementById("root")
+      //可讀
+      console.log(root.id) //root
+      //可寫
+      root.id = roots;//<div class="box" id="roots">hello</div>
+      
+      //可讀
+      console.log(root.className)//box
+      //可寫
+      root.className = "box box1"//<div class="box box1" id="root">hello</div>
+      //常用於為元素節點新增css
+    
+      root.classList.add("my box");//<div class="box box1 mybox" id="root">hello</div>
+      
+      root.classList.remove("box");//<div class="box1 mybox" id="root">hello</div>
+      
+      //contains()常用於判斷式
+      if(root.classList.contains("box1")){//後面省略句子是「為true」
+         console.log("有")
+       }else{console.log("沒有")}
+       
+       root.classList.toggle(box);//原本沒有 執行完這行後就有了
+      
+       //讀取
+       root.innerHTML；//文本內容為hello
+       //輸入內容
+       root.innerHTML = "嗨" //文本改為 嗨
+       
+       var str = "<a href='https://www.fuck.com'>幹</a>"
+       
+       root.innerHTML = str;//頁面上變成一個 連結 叫做幹
+       root.innerText = str;//頁面上直接輸出<a href='https://www.fuck.com'>幹</a>字串
+       
+   </script>
+</body>
