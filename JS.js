@@ -978,6 +978,9 @@ HTML5之後的新增功能
 document.querySelector()
 //接收一個css選擇器作為參數 返回匹配該選擇器的元素節點
 //若有多個則返回第一個 若無返回null
+document.querySelectorAll()
+//若要獲取多個
+//返回Nodelist object 包含所有匹配的節點
 範例：
 <body>
    <div>hello1</div>
@@ -988,10 +991,13 @@ document.querySelector()
    <div class="nav">nav1</div>
    <div class="nav">nav2</div>
    <script>
+      //!常用
       var divs = document.getElementsByTagName("div");
       console.log(divs);
       //HTMLCollection(2) [div,div] 
       //讀取其中一個
+    
+      //!常用
       var divs1 = document.getElementsByTagName('div')[0]
       console.log(divs1);
       //<div>hello1</div> 輸出這個代表讀取到內容了
@@ -1002,6 +1008,7 @@ document.querySelector()
       var divsAll = document.getElementsByTagName('*')
       //HTMLCollection(3) [div,p,div]
     
+      //!常用
       var divsClass= document.getElementsByClassName("text")
       console.log(divClass)//HTMLCollection[p.text]
       var divsClass1= document.getElementsByClassName("text")[0]
@@ -1014,18 +1021,65 @@ document.querySelector()
       var name = document.getElementsByName("login")
       console.log(name)//[object Nodelist]
       
+      //!常用
       //最常用Element沒有加s 有s代表返回集合 無則是返回當前元素
-      //！！因id名是不可重複的！！
+      //！！因id名是不可重複的！！ 所以通常只返回一個
       var id1 = document.getElementById("root")
       console.log(id1)//<div id="root">哈哈哈</div>
       //內容修改
       id1.innerHTML("呵呵呵")//<div id="root">呵呵呵</div>
       
+      //!常用
       //因選擇的是css選擇器 所以前面要加「.」 
+      //若找到多個元素節點 則返回找到的第一個 若無返回null
       //若是id 前加「#」
-      var navs = document.querySelector(".nav")
+      var nav = document.querySelector(".nav"）
+      console.log(nav)//<div class="nav">nav1</div>
+      
+      //!常用
+      var navs = document.querySelectorAll(".nav")
+      console.log(navs) //Nodelist(2)[div.nav,div.nav]
+      //讀其一
+      var navs = document.querySelectorAll(".nav")［1］
+      console.log(navs)//<div class="nav">nav2</div>
+    
+      
    </script>
 </body>
 
+document方法 創建元素
 
+document.createElement()
+
+document.createTextNode()
+
+document.createAttribute()
+
+<body>
+  <div class="navs">導航</div>
+  <div id="container"></div>
+  <script>
+    var createP = document.createElement("p")
+    console.log(createP)//<p></p>
+    var content = document.createTextNode("我是文本")
+    console.log(content) //"我是文本"
+    //appendChild:將內容或子元素放到容器中 父容器或是子容器皆可
+    createP.appendChild(content)
+    console.log(createP)//<p>我是文本</p>
+    var id1 = document.createAttribute("id")
+    console.log(id1)//id=""
+    //給id賦值
+    id1.value = "root"
+    //將attribute塞入容器中 只有屬性添加是用這個
+    createP.serAttributeNode(id1)
+    console.log(createP)//<p id="root">我是文本</p>
+    
+    //將創建好的容器塞入頁面中
+    var container = document.getElementById("container")
+    container.appendChild(createP)
+    //網站頁面中將會多一條我是文本
+    
+    //以上範例也可創建div h1-h6只要是頁面節點皆可
+  </script>
+</body>
 
